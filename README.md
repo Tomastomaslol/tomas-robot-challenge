@@ -1,6 +1,6 @@
 # How to install and run
 
-Run the application by running following commands. (If you don't have yarn and node on your computer please install them first).
+Start the application by running following commands. (If you don't have yarn and node on your computer please install yarn and node before running the commands).
 
 ```bash
 git clone git@github.com:Tomastomaslol/tomas-robot-challenge.git
@@ -9,9 +9,9 @@ yarn install
 yarn start
 ```
 
-This should start an application on http://localhost:1234/.
+This should start the application on http://localhost:1234/.
 
-To run the application please go to the browser console where you can find following commands:
+To run the application please open the browser console where you can run following commands:
 
 ```javascript
 robotCommands.place({ x: 0, y: 0, facing: "SOUTH" });
