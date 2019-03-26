@@ -15,7 +15,7 @@ const INVALID_X_POSITION_COMMAND: IRobotPosition = {
 describe("Position Service", () => {
   describe("getPosition", () => {
     it("returns an empty object when no robot position is set", () => {
-      expect(subject.getPosition()).toEqual({});
+      expect(subject.getPosition()).toEqual({} as IRobotPosition);
     });
 
     it("returns the position if a position has been set", () => {
@@ -35,6 +35,14 @@ describe("Position Service", () => {
 
     it("rejects an invalid X position", () => {
       expect(subject.setPosition(INVALID_X_POSITION_COMMAND)).toEqual(false);
+    });
+  });
+
+  describe("resetPosition", () => {
+    it("resets the robot position when called", () => {
+      subject.setPosition(VALID_POSITION_COMMAND);
+      subject.resetPosition();
+      expect(subject.getPosition()).toEqual({} as IRobotPosition);
     });
   });
 });
