@@ -1,7 +1,7 @@
 
 
 import { diff } from "deep-object-diff";
-import { initializeRobotCommands, IRobotCommands } from "./robot/commands/initialize";
+import { initializeRobotCommands } from "./robot/commands/initialize";
 
 
 const compareOutcome = (
@@ -11,6 +11,7 @@ const compareOutcome = (
 ) => {
   if (Object.keys(diff(expected, outcome)).length === 0) {
     console.log(`%c ✓ ${scenario} Passed`, " color: #bada55");
+    initializeRobotCommands();
   } else {
     console.warn(
       "FAILED ",
@@ -22,6 +23,7 @@ const compareOutcome = (
     );
   }
 };
+
 
 initializeRobotCommands();
 

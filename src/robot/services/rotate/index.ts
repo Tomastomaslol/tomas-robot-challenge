@@ -1,7 +1,12 @@
 import { TCompassPoints, IRobotPosition } from "./../position";
 
 type TDirection = "LEFT" | "RIGHT";
-const DIRECTIONAL_MAP :Array<TCompassPoints> = ["NORTH", "EAST", "SOUTH", "WEST"];
+const DIRECTIONAL_MAP: Array<TCompassPoints> = [
+  "NORTH",
+  "EAST",
+  "SOUTH",
+  "WEST"
+];
 
 const getTurn = (direction: TDirection): number =>
   direction === "LEFT" ? -1 : 1;

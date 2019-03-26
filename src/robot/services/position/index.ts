@@ -8,7 +8,6 @@ export interface IRobotPosition {
   facing: TCompassPoints;
 }
 
-
 let currentRobotPosition: IRobotPosition = {} as IRobotPosition;
 
 const invalidPositionX = (x: number): boolean =>
@@ -19,22 +18,28 @@ const invalidPositionY = (y: number): boolean =>
 
 const validatePosition = (robotPlacement: IRobotPosition) => {
   const { x, y } = robotPlacement;
-  return (!invalidPositionX(x) && !invalidPositionY(y)) ? true : false;
+  return !invalidPositionX(x) && !invalidPositionY(y) ? true : false;
 };
 
-export const hasBeenGivenAPosition = () : boolean =>
+export const hasBeenGivenAPosition = (): boolean =>
   Object.getOwnPropertyNames(currentRobotPosition).length > 0;
 
 export const getPosition = (): IRobotPosition => {
   return currentRobotPosition;
 };
 
-export const setPosition = (robotPosition: IRobotPosition) :boolean => {
+export const resetPosition = () =>
+  (currentRobotPosition = {} as IRobotPosition);
+
+export const setPosition = (robotPosition: IRobotPosition): boolean => {
   if (validatePosition(robotPosition)) {
-    currentRobotPosition = robotPosition;
+    currentRobotPosition = { ...currentRobotPosition, ...robotPosition };
     return true;
   } else {
-    console.error('The robot has not been given a new position. Current position is:', getPosition());
+    console.error(
+      "The robot has not been given a new position. Current position is:",
+      getPosition()
+    );
     return false;
   }
 };

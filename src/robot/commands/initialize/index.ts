@@ -4,7 +4,7 @@ import { report } from "./../report";
 import { left } from "./../left";
 import { right } from "./../right";
 
-import { IRobotPosition } from "./../../services/position";
+import { IRobotPosition, resetPosition } from "./../../services/position";
 
 export interface IRobotCommands {
   place: (robotPlacement: IRobotPosition) => boolean;
@@ -21,6 +21,7 @@ declare global {
 }
 
 export const initializeRobotCommands = () => {
+  resetPosition();
   window.robotCommands = {
     place: place,
     move: move,

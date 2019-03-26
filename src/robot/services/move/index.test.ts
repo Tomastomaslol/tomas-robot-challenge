@@ -2,7 +2,7 @@ import * as subject from "./index";
 
 describe("Move Service", () => {
   describe("getPosition", () => {
-
+    
     it("returns a new south position of given position when called facing south", () => {
       expect(subject.getNextPosition({ x: 1, y: 2, facing: "SOUTH" })).toEqual({
         x: 1,

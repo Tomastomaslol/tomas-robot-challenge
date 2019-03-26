@@ -1,4 +1,8 @@
-import { getPosition, hasBeenGivenAPosition, setPosition } from "./../../services/position/";
+import {
+  getPosition,
+  hasBeenGivenAPosition,
+  setPosition
+} from "./../../services/position/";
 import { getNextPosition } from "./../../services/move/";
 
 export const move = () => {
